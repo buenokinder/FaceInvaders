@@ -17,7 +17,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var gameBegim: Bool = false;
 	let kMinInvaderBottomHeight: Float = 32.0
 	var gameEnding: Bool = false
-
+	var gameLevel: Int = 1
 	var score: Int = 0
 	var shipHealth: Float = 1.0
 
@@ -74,8 +74,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   let kInvaderGridSpacing = CGSize(width: 12, height: 12)
-  let kInvaderRowCount = 1
-  let kInvaderColCount = 4
+  var kInvaderRowCount = 1
+  var kInvaderColCount = 4
   
   let kShipSize = CGSize(width: 30, height: 24)
   let kShipName = "ship"
@@ -390,7 +390,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // 3
     usernameLabel.position = CGPoint(
-        x: frame.size.width / 2,
+        x: 75,
         y: size.height - (25 + usernameLabel.frame.size.height/2)
     )
     
@@ -400,7 +400,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // 1
     let scoreLabel = SKLabelNode(fontNamed: "Courier")
     scoreLabel.name = kScoreHudName
-    scoreLabel.fontSize = 25
+    scoreLabel.fontSize = 15
    
     // 2
     scoreLabel.fontColor = SKColor.green
@@ -410,15 +410,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    
     // 3
     scoreLabel.position = CGPoint(
-      x: frame.size.width / 2,
-      y: size.height - (55 + scoreLabel.frame.size.height/2)
+      x: 60,
+      y: size.height - (45 + scoreLabel.frame.size.height/2)
     )
     addChild(scoreLabel)
    
     // 4
     let healthLabel = SKLabelNode(fontNamed: "Courier")
     healthLabel.name = kHealthHudName
-    healthLabel.fontSize = 25
+    healthLabel.fontSize = 15
    
     // 5
     healthLabel.fontColor = SKColor.red
@@ -426,8 +426,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    
     // 6
     healthLabel.position = CGPoint(
-      x: frame.size.width / 2,
-      y: size.height - (80 + healthLabel.frame.size.height/2)
+      x: 60,
+      y: size.height - (65 + healthLabel.frame.size.height/2)
     )
     addChild(healthLabel)
   }
@@ -821,15 +821,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 		// 1
 		if !gameEnding {
    
+			if(gameLevel > 7)
+			{
+				endGame()
+				
+			}
+			
 			gameEnding = true
    
 			// 2
 			motionManager.stopAccelerometerUpdates()
    
 			// 3
-			let gameOverScene: GameOverScene = GameOverScene(size: size)
-   
-			view?.presentScene(gameOverScene, transition: SKTransition.doorsOpenHorizontal(withDuration: 1.0))
+			let nextLevelScene: NextLevelScene = NextLevelScene(size: size)
+			nextLevelScene.level = gameLevel + 1;
+			nextLevelScene.pontos = score;
+			print("Level:  \(nextLevelScene.level)")
+			view?.presentScene(nextLevelScene, transition: SKTransition.doorsOpenHorizontal(withDuration: 1.0))
 		}
 	}
 	

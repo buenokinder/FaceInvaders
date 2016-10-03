@@ -214,6 +214,7 @@
 				7F3097F91D9EF012000C97DB /* Assets */,
 				7FC83C7C1D96F90800685373 /* FaceInvaders.entitlements */,
 				CDF079CF1975428800FFAB46 /* AppDelegate.swift */,
+				7FBD39561DA21643009A69E0 /* NextLevelScene.swift */,
 				CDF079D31975428800FFAB46 /* GameScene.swift */,
 				CDF079D51975428800FFAB46 /* GameViewController.swift */,
 				CDF07A191975510100FFAB46 /* GameOverScene.swift */,
@@ -222,7 +223,6 @@
 				CDF079CD1975428800FFAB46 /* Supporting Files */,
 				7F2C3B1F1D8F6DF600F71991 /* Bridging-Header.h */,
 				7F201C011D9F36C300613D78 /* FaceInvadersModel.xcdatamodeld */,
-				7FBD39561DA21643009A69E0 /* NextLevelScene.swift */,
 			);
 			name = FaceInvaders;
 			sourceTree = "<group>";

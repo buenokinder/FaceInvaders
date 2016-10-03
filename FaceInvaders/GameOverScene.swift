@@ -31,7 +31,7 @@ class GameOverScene: SKScene {
         self.addChild(gameOverLabel)
         
         let tapLabel = SKLabelNode(fontNamed: "Courier")
-        tapLabel.fontSize = 25
+        tapLabel.fontSize = 15
         tapLabel.fontColor = SKColor.white
         tapLabel.text = "(Toque para jogar novamente)"
         tapLabel.position = CGPoint(x: self.size.width/2, y: gameOverLabel.frame.origin.y - gameOverLabel.frame.size.height - 40);

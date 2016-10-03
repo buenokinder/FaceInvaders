@@ -25,7 +25,7 @@ class GameViewController: UIViewController, FBSDKLoginButtonDelegate  {
             {
                 let skView = self.view as! SKView
                 skView.showsFPS = true
-                skView.showsNodeCount = true
+              
                 
                 
                 skView.ignoresSiblingOrder = true
@@ -52,7 +52,7 @@ class GameViewController: UIViewController, FBSDKLoginButtonDelegate  {
         self.view.willRemoveSubview(loginView)
         let skView = self.view as! SKView
         skView.showsFPS = true
-        skView.showsNodeCount = true
+		
     
         skView.ignoresSiblingOrder = true
 
